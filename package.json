@@ -7,6 +7,13 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
     "build": "nuxt build",
+    "build:full": "npm run build && npm run build:games",
+    "build:games": "npm run build:breakout && npm run build:evolife",
+    "build:breakout": "cd games/breakout && npm run build",
+    "build:evolife": "cd games/EvolutronicLife && npm run build",
+    "install:games": "npm run install:breakout && npm run install:evolife",
+    "install:breakout": "cd games/breakout && npm install",
+    "install:evolife": "cd games/EvolutronicLife && npm install",
     "start": "cross-env NODE_ENV=production node server/index.js",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .eslintignore .",
