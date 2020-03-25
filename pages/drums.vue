@@ -1,11 +1,9 @@
 <template>
-  <div id="home">
-    <h1>
-      Markus Appel
-    </h1>
+  <div id="drums">
+    <h1>Drums</h1>
     <ul>
       <li>
-        <nuxt-link :to="{ name: 'drums' }">Drums</nuxt-link>
+        <nuxt-link :to="{ name: 'index' }">Home</nuxt-link>
       </li>
       <li>
         <nuxt-link :to="{ name: 'games' }">Games</nuxt-link>
@@ -21,11 +19,4 @@
 export default {}
 </script>
 
-<style lang="scss" scoped>
-#home {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-</style>
+<style></style>
