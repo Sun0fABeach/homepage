@@ -53,12 +53,12 @@ ul {
       text-decoration: none;
       text-transform: uppercase;
       color: inherit;
-      transition: transform 0.75s;
+      transition: transform 0.75s, color 0.5s;
       line-height: 1;
 
       &:hover {
         color: $color-highlight;
-        transform: scale(1.25);
+        transform: scale(1.2);
       }
     }
     &.drums a {
