@@ -23,7 +23,11 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: ['@/assets/css/base.scss', '@/assets/css/fonts.scss'],
+  css: [
+    '@/assets/css/base.scss',
+    '@/assets/css/fonts.scss',
+    '@/assets/css/animations.scss',
+  ],
   /*
    ** Plugins to load before mounting the App
    */
@@ -53,7 +57,7 @@ module.exports = {
    ** See https://github.com/nuxt-community/style-resources-module
    */
   styleResources: {
-    scss: ['@/assets/css/globals.scss'],
+    scss: ['@/assets/css/variables.scss'],
   },
   /*
    ** Build configuration

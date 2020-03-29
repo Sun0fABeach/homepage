@@ -24,12 +24,15 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+  overflow: hidden; // don't cause scrollbars with entry animations
 }
 
 h1 {
   font-size: 2rem;
   font-weight: 100;
   font-family: $font-name;
+  animation-name: flipInX;
+  animation-duration: 0.75s;
 }
 
 ul {
@@ -62,12 +65,24 @@ ul {
       font-family: $font-drums;
       font-weight: bold;
       letter-spacing: 0.125rem;
+      animation-name: zoomInLeft;
+      animation-duration: 1.5s;
+      animation-delay: 0.25s;
+      animation-fill-mode: backwards;
     }
     &.games a {
       font-family: $font-games;
+      animation-name: zoomInUp;
+      animation-duration: 1.5s;
+      animation-delay: 0.75s;
+      animation-fill-mode: backwards;
     }
     &.code a {
       font-family: $font-code;
+      animation-name: zoomInRight;
+      animation-duration: 1.5s;
+      animation-delay: 1.25s;
+      animation-fill-mode: backwards;
     }
   }
 }
