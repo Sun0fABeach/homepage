@@ -17,6 +17,12 @@
   </div>
 </template>
 
+<script>
+export default {
+  layout: 'frontpage',
+}
+</script>
+
 <style lang="scss" scoped>
 #home {
   display: flex;
@@ -40,6 +46,7 @@ ul {
   padding-left: 0;
   display: flex;
   flex-direction: column;
+  align-items: baseline;
   text-align: center;
   font-size: 1.75rem;
   margin-top: 1.75rem;

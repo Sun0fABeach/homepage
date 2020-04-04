@@ -1,6 +1,5 @@
 <template>
   <div class="layout">
-    <Header />
     <main>
       <nuxt />
     </main>
@@ -9,15 +8,14 @@
 </template>
 
 <script>
-import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export default {
-  components: { Header, Footer },
+  components: { Footer },
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .layout {
   display: flex;
   flex-direction: column;
