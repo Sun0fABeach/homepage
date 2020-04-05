@@ -42,9 +42,7 @@ h1 {
 }
 
 ul {
-  list-style-type: none;
-  padding-left: 0;
-  display: flex;
+  @include flex-list;
   flex-direction: column;
   align-items: baseline;
   text-align: center;
@@ -56,10 +54,9 @@ ul {
       margin-top: 0.75rem;
     }
     a {
+      @include link-reset;
       display: inline-block;
-      text-decoration: none;
       text-transform: uppercase;
-      color: inherit;
       transition: transform 0.75s, color 0.5s;
       line-height: 1;
 

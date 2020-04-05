@@ -45,11 +45,9 @@ header {
 }
 
 ul {
-  display: flex;
+  @include flex-list;
   justify-content: space-between;
   align-items: baseline;
-  list-style-type: none;
-  padding-left: 0;
 
   li {
     font-size: 1.5rem;
@@ -70,8 +68,7 @@ ul {
       font-family: $font-code;
     }
     a {
-      text-decoration: none;
-      color: inherit;
+      @include link-reset;
 
       &:hover {
         text-decoration: underline;

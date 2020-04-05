@@ -16,13 +16,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.layout {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-
-main {
-  flex-grow: 1;
-}
+@include layout;
 </style>

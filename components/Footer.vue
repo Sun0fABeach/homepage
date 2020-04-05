@@ -16,10 +16,8 @@ footer {
   padding: 0.75rem;
 
   ul {
-    display: flex;
+    @include flex-list;
     justify-content: center;
-    list-style-type: none;
-    padding-left: 0;
   }
 
   li:not(:first-child) {
@@ -27,7 +25,7 @@ footer {
   }
 
   a {
-    text-decoration: none;
+    @include link-reset;
     color: $color-secondary;
   }
 }
