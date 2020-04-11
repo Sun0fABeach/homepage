@@ -69,9 +69,11 @@ ul {
     }
     a {
       @include link-reset;
+      color: $color-secondary;
 
       &:hover {
         text-decoration: underline;
+        color: $color-primary;
       }
     }
   }
@@ -84,7 +86,7 @@ ul {
 }
 @media (min-width: $min-desktop) {
   header {
-    padding: 1rem 2.25rem;
+    padding: 0.75rem 2.25rem;
   }
 }
 </style>

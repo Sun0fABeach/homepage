@@ -13,7 +13,7 @@
 
 <style lang="scss" scoped>
 footer {
-  padding: 0.75rem;
+  padding: 4rem 0.75rem 0.75rem;
 
   ul {
     @include flex-list;
@@ -32,7 +32,7 @@ footer {
 
 @media (min-width: $min-tablet) {
   footer {
-    padding: 0.75rem;
+    padding: 3.5rem 0.75rem 1rem;
 
     li:not(:first-child) {
       margin-left: 2rem;
@@ -42,7 +42,7 @@ footer {
 
 @media (min-width: $min-desktop) {
   footer {
-    padding: 0.875rem;
+    padding: 2.5rem 0.75rem 1.25rem;
 
     li:not(:first-child) {
       margin-left: 2.5rem;
