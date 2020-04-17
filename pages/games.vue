@@ -1,6 +1,5 @@
 <template>
   <div id="games">
-    <h1>Games</h1>
     <div class="thumbnails">
       <GameThumbnail v-bind="breakout" />
       <GameThumbnail v-bind="battleship" />
@@ -49,14 +48,6 @@ export default {
   display: flex;
   flex-direction: column;
 
-  h1 {
-    text-align: center;
-    font-family: $font-games;
-    font-weight: normal;
-    font-size: 3rem;
-    margin-top: 2rem;
-  }
-
   .thumbnails {
     display: flex;
     flex-direction: column;
@@ -66,7 +57,7 @@ export default {
       width: 70%;
       margin-top: 3.5rem;
       &:first-of-type {
-        margin-top: 2.25rem;
+        margin-top: 1.875rem;
       }
     }
   }
@@ -81,9 +72,9 @@ export default {
 
       > * {
         width: 35%;
-        margin-top: 3rem;
+        margin-top: 4rem;
         &:first-of-type {
-          margin-top: 3rem;
+          margin-top: 4rem;
         }
       }
     }
@@ -95,9 +86,9 @@ export default {
     .thumbnails {
       > * {
         width: 20%;
-        margin-top: 2rem;
+        margin-top: 4.5rem;
         &:first-of-type {
-          margin-top: 2rem;
+          margin-top: 4.5rem;
         }
       }
     }
