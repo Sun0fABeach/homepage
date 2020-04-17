@@ -27,7 +27,15 @@ module.exports = {
     '@/assets/css/base.scss',
     '@/assets/css/fonts.scss',
     '@/assets/css/animations.scss',
+    '@/assets/css/transitions.scss',
   ],
+  /*
+   ** Style recources module configuration
+   ** See https://github.com/nuxt-community/style-resources-module
+   */
+  styleResources: {
+    scss: ['@/assets/css/variables.scss', '@/assets/css/mixins.scss'],
+  },
   /*
    ** Plugins to load before mounting the App
    */
@@ -52,13 +60,6 @@ module.exports = {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
-  /*
-   ** Style recources module configuration
-   ** See https://github.com/nuxt-community/style-resources-module
-   */
-  styleResources: {
-    scss: ['@/assets/css/variables.scss', '@/assets/css/mixins.scss'],
-  },
   /*
    ** Build configuration
    */
