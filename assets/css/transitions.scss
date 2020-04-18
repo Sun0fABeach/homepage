@@ -1,8 +1,35 @@
+$layout-transition-length: .5s;
+$page-transition-length: .5s;
+
+.layout-enter-active, .layout-leave-active {
+  transition: opacity $layout-transition-length;
+}
+.layout-enter, .layout-leave-to {
+  opacity: 0;
+}
+
 @media (min-width: $min-tablet) {
   .page-enter-active, .page-leave-active {
-    transition: opacity .5s;
+    transition: opacity $page-transition-length;
   }
   .page-enter, .page-leave-to {
     opacity: 0;
+  }
+}
+
+ /* when layout transition is in progress, the page also changes due to the
+ ** route change. we need to prevent the page from disappearing immediately or
+ ** playing its own transition during the time of the layout change.
+ */
+@media (min-width: 0) { // to win specificity battle
+  .layout-enter-active, .layout-leave-active {
+    .page-enter-active, .page-leave-active {
+      transition: opacity $layout-transition-length;
+    }
+  }
+  .layout-enter, .layout-leave-to {
+    .page-enter, .page-leave-to {
+      opacity: 0.99;
+    }
   }
 }
