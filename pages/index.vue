@@ -1,8 +1,6 @@
 <template>
   <div id="home">
-    <h1>
-      Markus Appel
-    </h1>
+    <h1>Markus Appel</h1>
     <ul>
       <li class="drums">
         <nuxt-link :to="{ name: 'drums' }">Drums</nuxt-link>
@@ -37,6 +35,7 @@ h1 {
   font-size: 2rem;
   font-weight: 100;
   font-family: $font-name;
+  margin-top: 2rem;
   animation-name: flipInX;
   animation-duration: 0.75s;
 }
@@ -46,12 +45,12 @@ ul {
   flex-direction: column;
   align-items: baseline;
   text-align: center;
-  font-size: 1.75rem;
+  font-size: 2.25rem;
   margin-top: 1.75rem;
 
   li {
     &:not(:first-child) {
-      margin-top: 0.75rem;
+      margin-top: 1.25rem;
     }
     a {
       @include link-reset;
@@ -98,12 +97,12 @@ ul {
 
   ul {
     flex-direction: row;
-    font-size: 2rem;
-    margin-top: 1.25rem;
+    font-size: 2.5rem;
+    margin-top: 1.75rem;
 
     li:not(:first-child) {
       margin-top: 0;
-      margin-left: 2rem;
+      margin-left: 2.5rem;
     }
   }
 }
@@ -114,11 +113,11 @@ ul {
   }
 
   ul {
-    font-size: 2.25rem;
-    margin-top: 1.375rem;
+    font-size: 2.75rem;
+    margin-top: 2rem;
 
     li:not(:first-child) {
-      margin-left: 2.5rem;
+      margin-left: 3.5rem;
     }
   }
 }
