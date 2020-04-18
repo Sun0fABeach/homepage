@@ -107,10 +107,6 @@ ul {
     a {
       @include link-reset;
       color: $color-primary;
-
-      &.nuxt-link-exact-active {
-        text-decoration: underline;
-      }
     }
   }
 }
@@ -141,10 +137,13 @@ ul {
       a {
         color: $color-secondary;
 
-        &:hover,
         &.nuxt-link-exact-active {
-          text-decoration: underline;
+          color: $color-highlight;
+          cursor: default;
+        }
+        &:hover:not(.nuxt-link-exact-active) {
           color: $color-primary;
+          text-decoration: underline;
         }
       }
     }
