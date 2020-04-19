@@ -117,6 +117,7 @@ ul {
   }
 
   .nav-container {
+    flex-grow: 1;
     position: relative;
     top: 0;
     left: 0;
