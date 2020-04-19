@@ -29,7 +29,7 @@ export default {
 header {
   display: flex;
   align-items: center;
-  --header-padding-mobile: 1rem; // also needed in nav container
+  --header-padding-mobile: 1.25rem; // also needed in nav container
   padding: var(--header-padding-mobile);
 }
 
@@ -50,7 +50,7 @@ h1 {
 
 @media (min-width: $min-tablet) {
   header {
-    padding: 0.75rem 1.5rem;
+    padding: 1rem 1.5rem;
   }
   h1 {
     display: none;
@@ -62,7 +62,7 @@ h1 {
 
 @media (min-width: $min-desktop) {
   header {
-    padding: 0.75rem 2.25rem;
+    padding: 1.25rem 2.25rem;
   }
 }
 </style>

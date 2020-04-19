@@ -88,6 +88,7 @@ ul {
 
   li {
     font-size: 2.25rem;
+    text-transform: uppercase;
 
     &.home {
       @include font-name;
