@@ -20,3 +20,21 @@
     flex-grow: 1;
   }
 }
+
+@mixin font-default {
+  font-family: $font-family-default;
+}
+@mixin font-name {
+  font-family: $font-family-name;
+}
+@mixin font-drums {
+  font-family: $font-family-drums;
+  font-weight: bold;
+  letter-spacing: 0.125rem;
+}
+@mixin font-games {
+  font-family: $font-family-games;
+}
+@mixin font-code {
+  font-family: $font-family-code;
+}

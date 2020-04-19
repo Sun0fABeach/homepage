@@ -32,9 +32,9 @@ export default {
 }
 
 h1 {
+  @include font-name;
   font-size: 2rem;
   font-weight: 100;
-  font-family: $font-name;
   margin-top: 2rem;
   animation-name: flipInX;
   animation-duration: 0.75s;
@@ -65,23 +65,21 @@ ul {
       }
     }
     &.drums a {
-      font-family: $font-drums;
-      font-weight: bold;
-      letter-spacing: 0.125rem;
+      @include font-drums;
       animation-name: zoomInLeft;
       animation-duration: 1.5s;
       animation-delay: 0.25s;
       animation-fill-mode: backwards;
     }
     &.games a {
-      font-family: $font-games;
+      @include font-games;
       animation-name: zoomInUp;
       animation-duration: 1.5s;
       animation-delay: 0.75s;
       animation-fill-mode: backwards;
     }
     &.code a {
-      font-family: $font-code;
+      @include font-code;
       animation-name: zoomInRight;
       animation-duration: 1.5s;
       animation-delay: 1.25s;

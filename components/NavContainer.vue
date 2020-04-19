@@ -84,25 +84,23 @@ ul {
   justify-content: space-evenly;
   align-items: center;
   flex-grow: 1;
+  line-height: 1.5; // necessary for even vertical alignment
 
   li {
     font-size: 2.25rem;
 
     &.home {
-      font-family: $font-name;
-      font-weight: bold;
+      @include font-name;
     }
     &.drums {
-      font-family: $font-drums;
-      font-weight: bold;
-      letter-spacing: 0.125rem;
+      @include font-drums;
     }
     &.games {
-      font-family: $font-games;
+      @include font-games;
+      transform: translateY(3px); // necessary for even vertical alignment
     }
     &.code {
-      font-family: $font-code;
-      line-height: 1; // necessary for even vertical alignment
+      @include font-code;
     }
     a {
       @include link-reset;

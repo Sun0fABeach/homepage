@@ -36,7 +36,7 @@ a {
   align-items: center;
 
   h2 {
-    font-family: $font-games;
+    @include font-games;
     font-weight: normal;
   }
 

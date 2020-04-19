@@ -41,12 +41,10 @@ h1 {
   color: $color-highlight;
 
   &.drums {
-    font-family: $font-drums;
-    font-weight: bold;
-    letter-spacing: 0.125rem;
+    @include font-drums;
   }
   &.games {
-    font-family: $font-games;
+    @include font-games;
   }
 }
 
