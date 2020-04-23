@@ -1,6 +1,6 @@
 # homepage
 
-> My personal homepage
+> My personal homepage (WIP)
 
 ## Build Setup
 
