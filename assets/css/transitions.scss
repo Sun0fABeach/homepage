@@ -9,27 +9,54 @@ $page-transition-length: .5s;
 }
 
 @media (min-width: $min-tablet) {
-  .page-enter-active, .page-leave-active {
-    transition: opacity $page-transition-length;
+  .swipe-left, .swipe-right {
+    .page-enter-active, .page-leave-active {
+      transition: transform $page-transition-length ease-out;
+    }
+    .page-enter-active {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
   }
-  .page-enter, .page-leave-to {
-    opacity: 0;
+
+  .swipe-left {
+    .page-enter {
+      transform: translateX(100vw);
+    }
+    .page-leave-to {
+      transform: translateX(-100vw);
+    }
+  }
+
+  .swipe-right {
+    .page-enter {
+      transform: translateX(-100vw);
+    }
+    .page-leave-to {
+      transform: translateX(100vw);
+    }
   }
 }
 
- /* when layout transition is in progress, the page also changes due to the
- ** route change. we need to prevent the page from disappearing immediately or
- ** playing its own transition during the time of the layout change.
+/*  when the layout transition is started, the page component changes
+ ** immediately due to the route change. we need to force the page to play its
+ ** own (pseudo-)transition during the time of the layout change to prevent this
+ ** effect.
  */
-@media (min-width: 0) { // to win specificity battle
-  .layout-enter-active, .layout-leave-active {
-    .page-enter-active, .page-leave-active {
-      transition: opacity $layout-transition-length;
-    }
+.layout-leave-active {
+  // setting the transition property triggers these classes to be alive
+  .page-enter-active, .page-leave-active {
+    transition: transform $layout-transition-length;
   }
-  .layout-enter, .layout-leave-to {
-    .page-enter, .page-leave-to {
-      opacity: 0.99;
-    }
+  // pseudo change
+  .page-enter-to, .page-leave-to {
+    transform: scale(1);
+  }
+  // hidden while leaving page is kept alive by transition
+  .page-enter-active {
+    display: none !important;
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div id="drums">
+  <div class="page drums">
     <h1>Lorem ipsum</h1>
   </div>
 </template>

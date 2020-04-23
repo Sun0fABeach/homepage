@@ -36,6 +36,10 @@ module.exports = {
   styleResources: {
     scss: ['@/assets/css/variables.scss', '@/assets/css/mixins.scss'],
   },
+
+  pageTransition: {
+    mode: null, // to have simultaneous mode
+  },
   /*
    ** Plugins to load before mounting the App
    */

@@ -1,5 +1,5 @@
 <template>
-  <div id="home">
+  <div class="page home">
     <h1>Markus Appel</h1>
     <ul>
       <li class="drums">
@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#home {
+.home {
   display: flex;
   flex-direction: column;
   justify-content: center;
