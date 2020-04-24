@@ -14,8 +14,9 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    &.site {
+      overflow-y: scroll;
+    }
   }
   main {
     flex-grow: 1;

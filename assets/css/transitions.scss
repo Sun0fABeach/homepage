@@ -9,35 +9,11 @@ $page-transition-length: .5s;
 }
 
 @media (min-width: $min-tablet) {
-  .swipe-left, .swipe-right {
-    .page-enter-active, .page-leave-active {
-      transition: transform $page-transition-length ease-out;
-    }
-    .page-enter-active {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
+  .page-enter-active, .page-leave-active {
+    transition: transform $page-transition-length ease-out;
   }
-
-  .swipe-left {
-    .page-enter {
-      transform: translateX(100vw);
-    }
-    .page-leave-to {
-      transform: translateX(-100vw);
-    }
-  }
-
-  .swipe-right {
-    .page-enter {
-      transform: translateX(-100vw);
-    }
-    .page-leave-to {
-      transform: translateX(100vw);
-    }
+  .page-enter, .page-leave-to {
+    transform: scaleX(0);
   }
 }
 
@@ -47,15 +23,10 @@ $page-transition-length: .5s;
  ** effect.
  */
 .layout-leave-active {
-  .page-enter-active, .page-leave-active {
+  .page-leave-active {
     transition: transform $layout-transition-length;
   }
-  // pseudo change that overrides original page transition
-  .page-enter-to, .page-leave-to {
+  .page-leave-to {
     transform: scale(1);
-  }
-  // hidden while leaving page is kept alive by transition
-  .page-enter-active {
-    display: none !important;
   }
 }

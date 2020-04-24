@@ -8,7 +8,7 @@
         </nuxt-link>
       </li>
       <li v-for="name in routeLinkNames" :key="name" :class="name">
-        <nuxt-link :to="{ name }" @click.native="onNavClick(name)">
+        <nuxt-link :to="{ name }" @click.native="$emit('open', false)">
           {{ name | capitalize }}
         </nuxt-link>
       </li>
@@ -49,12 +49,6 @@ export default {
         .filter((r) => r.name !== 'index')
         .map((r) => r.name),
     }
-  },
-  methods: {
-    onNavClick(pageName) {
-      this.$emit('click:pageLink', pageName)
-      this.$emit('open', false)
-    },
   },
 }
 </script>

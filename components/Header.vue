@@ -2,10 +2,7 @@
   <header>
     <Icon :src="iconSrc" class="menu-open" @click="menuOpen = true" />
     <h1 :class="$route.name">{{ $route.name }}</h1>
-    <NavContainer
-      v-model="menuOpen"
-      @click:pageLink="$emit('click:pageLink', $event)"
-    />
+    <NavContainer v-model="menuOpen" />
   </header>
 </template>
 
