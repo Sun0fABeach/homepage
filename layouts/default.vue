@@ -33,6 +33,5 @@ export default {
 
 main {
   position: relative;
-  overflow-x: hidden;
 }
 </style>
