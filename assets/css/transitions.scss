@@ -47,11 +47,10 @@ $page-transition-length: .5s;
  ** effect.
  */
 .layout-leave-active {
-  // setting the transition property triggers these classes to be alive
   .page-enter-active, .page-leave-active {
     transition: transform $layout-transition-length;
   }
-  // pseudo change
+  // pseudo change that overrides original page transition
   .page-enter-to, .page-leave-to {
     transform: scale(1);
   }

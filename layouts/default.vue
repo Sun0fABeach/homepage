@@ -1,7 +1,7 @@
 <template>
   <div class="layout site">
     <Header @click:pageLink="adjustSwipe" />
-    <main :class="`swipe-${swipeDirection}`">
+    <main :class="swipeClass">
       <nuxt />
     </main>
     <Footer />
@@ -16,13 +16,13 @@ export default {
   components: { Header, Footer },
   data() {
     return {
-      swipeDirection: 'none',
+      swipeClass: null,
     }
   },
   methods: {
     adjustSwipe(targetPage) {
-      const directionDict = { drums: 'right', games: 'left' }
-      this.swipeDirection = directionDict[targetPage]
+      const directionDict = { drums: 'swipe-right', games: 'swipe-left' }
+      this.swipeClass = directionDict[targetPage]
     },
   },
 }
@@ -30,7 +30,6 @@ export default {
 
 <style lang="scss" scoped>
 @include layout;
-
 main {
   position: relative;
 }
