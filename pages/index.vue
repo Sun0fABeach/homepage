@@ -43,7 +43,6 @@ h1 {
 ul {
   @include flex-list;
   flex-direction: column;
-  align-items: baseline;
   text-align: center;
   font-size: 2.25rem;
   margin-top: 1.75rem;
@@ -57,7 +56,7 @@ ul {
       display: inline-block;
       text-transform: uppercase;
       transition: transform 0.75s, color 0.5s;
-      line-height: 1;
+      line-height: 1; // needed b/c the fonts have different line heights
 
       &:hover {
         color: $color-highlight;
@@ -95,6 +94,7 @@ ul {
 
   ul {
     flex-direction: row;
+    align-items: baseline;
     font-size: 2.5rem;
     margin-top: 1.75rem;
 

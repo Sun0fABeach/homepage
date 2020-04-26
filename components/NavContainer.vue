@@ -84,11 +84,11 @@ ul {
   justify-content: space-evenly;
   align-items: center;
   flex-grow: 1;
-  line-height: 1.5; // necessary for even vertical alignment
 
   li {
     font-size: 2.25rem;
     text-transform: uppercase;
+    line-height: 1; // needed b/c the fonts have different line heights
 
     &.home {
       @include font-name;
@@ -98,7 +98,7 @@ ul {
     }
     &.games {
       @include font-games;
-      transform: translateY(3px); // necessary for even vertical alignment
+      transform: translateY(5px); // necessary for even vertical alignment
     }
     &.code {
       @include font-code;
@@ -130,9 +130,14 @@ ul {
   ul {
     flex-direction: row;
     justify-content: space-between;
+    align-items: baseline;
 
     li {
       font-size: 1.5rem;
+
+      &.games {
+        transform: translateY(1px); // modify alignment tweak
+      }
 
       a {
         color: $color-secondary;
