@@ -154,4 +154,13 @@ ul {
     }
   }
 }
+
+@media (min-width: $min-desktop) {
+  .nav-container {
+    ul {
+      width: 45%;
+      margin: 0 auto;
+    }
+  }
+}
 </style>
