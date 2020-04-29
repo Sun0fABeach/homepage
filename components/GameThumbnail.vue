@@ -43,27 +43,29 @@ a {
   img {
     width: 100%;
     margin-top: 1rem;
-    box-shadow: 4px 4px 8px 4px darkgray;
+    @include shadow(1);
   }
 }
 
 @media (min-width: $min-desktop) {
   a {
     h2 {
-      transition: color 0.25s;
+      transition: color 0.375s;
     }
+    img {
+      filter: grayscale(100%);
+      transition: all 0.5s;
+    }
+
     &:hover {
       > h2 {
         color: $color-highlight;
       }
       > img {
         filter: none;
+        transform: scale(1.05);
+        @include shadow(4);
       }
-    }
-
-    img {
-      filter: grayscale(100%);
-      transition: filter 0.5s;
     }
   }
 }
