@@ -17,19 +17,22 @@ import imgEvolife from '@/assets/images/evolife.png'
 const imgData = {
   breakout: {
     heading: 'Breakout',
-    href: 'games/breakout',
+    hrefGame: 'games/breakout',
+    hrefCode: 'https://github.com/Sun0fABeach/breakout',
     imgSrc: imgBreakout,
     imgAlt: 'Breakout',
   },
   battleship: {
     heading: 'Battleship',
-    href: 'http://www.battleship-online.com',
+    hrefGame: 'http://www.battleship-online.com',
+    hrefCode: 'https://github.com/Sun0fABeach/battleship_online',
     imgSrc: imgBattleship,
     imgAlt: 'Battleship',
   },
   evolife: {
     heading: 'Evolife',
-    href: 'games/evolife',
+    hrefGame: 'games/evolife',
+    hrefCode: 'https://github.com/Sun0fABeach/EvolutronicLife',
     imgSrc: imgEvolife,
     imgAlt: 'Evolife',
   },
