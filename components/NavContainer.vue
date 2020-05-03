@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-container" :class="{ 'is-open': isOpen }">
+  <nav class="nav-container" :class="{ 'is-open': isOpen }">
     <Icon :src="iconSrc" class="menu-close" @click="$emit('open', false)" />
     <ul>
       <li class="index">
@@ -18,7 +18,7 @@
         </a>
       </li>
     </ul>
-  </div>
+  </nav>
 </template>
 
 <script>

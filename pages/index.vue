@@ -1,5 +1,5 @@
 <template>
-  <div class="page home">
+  <section class="page home">
     <h1>Markus Appel</h1>
     <ul>
       <li class="drums">
@@ -12,7 +12,7 @@
         <a href="https://github.com/Sun0fABeach" target="_blank">Code</a>
       </li>
     </ul>
-  </div>
+  </section>
 </template>
 
 <script>

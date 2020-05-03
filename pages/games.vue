@@ -1,11 +1,11 @@
 <template>
-  <div class="page games">
+  <section class="page games">
     <div class="thumbnails">
       <GameThumbnail v-bind="breakout" />
       <GameThumbnail v-bind="battleship" />
       <GameThumbnail v-bind="evolife" />
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

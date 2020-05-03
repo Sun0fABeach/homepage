@@ -1,7 +1,7 @@
 <template>
-  <div class="page drums">
+  <section class="page drums">
     <h1>Lorem ipsum</h1>
-  </div>
+  </section>
 </template>
 
 <script>
