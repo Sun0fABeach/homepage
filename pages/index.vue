@@ -55,14 +55,7 @@ ul {
       @include link-reset;
       display: inline-block;
       text-transform: uppercase;
-      transition: transform 0.75s, color 0.5s;
       line-height: 1; // needed b/c the fonts have different line heights
-
-      &:hover,
-      &:focus {
-        color: $color-highlight;
-        transform: scale(1.2);
-      }
     }
     &.drums a {
       @include font-drums;
@@ -99,9 +92,19 @@ ul {
     font-size: 2.5rem;
     margin-top: 1.75rem;
 
-    li:not(:first-child) {
-      margin-top: 0;
-      margin-left: 2.5rem;
+    li {
+      &:not(:first-child) {
+        margin-top: 0;
+        margin-left: 2.5rem;
+      }
+      a {
+        transition: transform 0.75s, color 0.5s;
+        &:hover,
+        &:focus {
+          color: $color-highlight;
+          transform: scale(1.2);
+        }
+      }
     }
   }
 }

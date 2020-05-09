@@ -79,9 +79,7 @@ a {
   .heading {
     padding: 0 0.75rem;
   }
-}
 
-@media (min-width: $min-desktop) {
   a {
     &.thumb {
       > img {
