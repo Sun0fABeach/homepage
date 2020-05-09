@@ -58,7 +58,8 @@ ul {
       transition: transform 0.75s, color 0.5s;
       line-height: 1; // needed b/c the fonts have different line heights
 
-      &:hover {
+      &:hover,
+      &:focus {
         color: $color-highlight;
         transform: scale(1.2);
       }

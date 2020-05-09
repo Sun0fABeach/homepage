@@ -90,10 +90,13 @@ a {
         transition: all 0.5s;
       }
 
-      &:hover > img {
-        filter: none;
-        transform: scale(1.05);
-        @include shadow(4);
+      &:hover,
+      &:focus {
+        > img {
+          filter: none;
+          transform: scale(1.05);
+          @include shadow(4);
+        }
       }
     }
   }

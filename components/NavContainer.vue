@@ -146,9 +146,12 @@ ul {
           color: $color-highlight;
           cursor: default;
         }
-        &:hover:not(.nuxt-link-exact-active) {
-          color: $color-primary;
-          text-decoration: underline;
+        &:hover,
+        &:focus {
+          &:not(.nuxt-link-exact-active) {
+            color: $color-primary;
+            text-decoration: underline;
+          }
         }
       }
     }
