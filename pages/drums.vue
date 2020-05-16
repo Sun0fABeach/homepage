@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import scream from '@/assets/audio/reckless/escalate/1_Scream.mp3'
-import dumb from '@/assets/audio/reckless/escalate/2_Dumb.mp3'
+import scream from '@/assets/audio/reckless/escalate/01_scream.mp3'
+import dumb from '@/assets/audio/reckless/escalate/02_dumb.mp3'
 
 export default {
   mounted() {
