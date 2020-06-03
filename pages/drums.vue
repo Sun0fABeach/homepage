@@ -1,30 +1,42 @@
 <template>
   <section class="page drums">
-    <h1 class="amplitude-play-pause">PLAY/PAUSE</h1>
+    <h1
+      class="amplitude-play-pause"
+      data-amplitude-playlist="coshima-hataera"
+      data-amplitude-song-index="1"
+    >
+      PLAYLIST PLAY/PAUSE
+    </h1>
+
+    <div v-for="playlist in playlists" :key="playlist.title">
+      <h2>{{ playlist.title }}</h2>
+      <ol>
+        <li v-for="song in playlist.songs" :key="song.name">
+          {{ song.name }}
+        </li>
+      </ol>
+    </div>
   </section>
 </template>
 
 <script>
-import scream from '@/assets/audio/reckless/escalate/01_scream.mp3'
-import dumb from '@/assets/audio/reckless/escalate/02_dumb.mp3'
+import { omit, each } from 'lodash-es'
+import playlists from '@/assets/audio'
 
 export default {
+  data() {
+    return {
+      playlists,
+    }
+  },
   mounted() {
-    this.$amplitude.init({
-      songs: [
-        {
-          name: 'Scream',
-          artist: 'Reckless',
-          album: 'Escalate',
-          url: scream,
-        },
-        {
-          name: 'Dumb',
-          artist: 'Reckless',
-          album: 'Escalate',
-          url: dumb,
-        },
-      ],
+    this.$amplitude.init({})
+    each(playlists, (playlist, key) => {
+      this.$amplitude.addPlaylist(
+        key,
+        omit(playlist, ['songs']),
+        playlist.songs
+      )
     })
   },
 }

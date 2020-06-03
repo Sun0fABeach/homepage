@@ -18,10 +18,9 @@ function toDisplay(s, fullUpcase = false) {
 
 const filePaths = glob.sync('assets/audio/**/*.mp3')
 
-const parsed = map(filePaths, (filePath) => ({
-  ...zipObject(['band', 'album', 'song'], filePath.split(path.sep).slice(2)),
-  path: filePath,
-}))
+const parsed = map(filePaths, (filePath) =>
+  zipObject(['band', 'album', 'song'], filePath.split(path.sep).slice(2))
+)
 
 const grouped = groupBy(parsed, (entry) => `${entry.band}-${entry.album}`)
 
@@ -37,14 +36,13 @@ const final = transform(grouped, (result, songs, playlistKey) => {
       name: toDisplay(entry.song.slice(3, entry.song.lastIndexOf('.')), isAT),
       artist: bandDisplay,
       album: albumDisplay,
-      url: ['@', entry.path].join(path.sep),
     })),
   }
 })
 
 const json = JSON.stringify(final, undefined, 2)
 
-fs.writeFile('playlists.json', json, 'utf8', (err) => {
+fs.writeFile('assets/audio/playlists.json', json, 'utf8', (err) => {
   if (err) {
     console.log('An error occured while writing JSON Object to File.')
     return console.error(err)
