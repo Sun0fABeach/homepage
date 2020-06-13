@@ -8,10 +8,16 @@
       PLAYLIST PLAY/PAUSE
     </h1>
 
-    <div v-for="playlist in playlists" :key="playlist.title">
+    <div v-for="(playlist, key) of playlists" :key="playlist.title">
       <h2>{{ playlist.title }}</h2>
       <ol>
-        <li v-for="song in playlist.songs" :key="song.name">
+        <li
+          v-for="(song, idx) of playlist.songs"
+          :key="song.name"
+          class="amplitude-play"
+          :data-amplitude-song-index="idx"
+          :data-amplitude-playlist="key"
+        >
           {{ song.name }}
         </li>
       </ol>
