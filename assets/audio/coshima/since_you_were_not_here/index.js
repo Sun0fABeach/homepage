@@ -8,12 +8,36 @@ import guillotines from './07_guillotines.mp3'
 import everyStarWalk from './08_every_star_walk.mp3'
 
 export default [
-  plugginIn,
-  dignity,
-  apathy,
-  blight,
-  dawn,
-  face2space,
-  guillotines,
-  everyStarWalk,
+  {
+    name: 'Pluggin In',
+    url: plugginIn,
+  },
+  {
+    name: 'Dignity Falls 24th',
+    url: dignity,
+  },
+  {
+    name: 'Apathy',
+    url: apathy,
+  },
+  {
+    name: 'The Blight On Lonesome Boys',
+    url: blight,
+  },
+  {
+    name: 'Dawn',
+    url: dawn,
+  },
+  {
+    name: 'Face25pace',
+    url: face2space,
+  },
+  {
+    name: 'Guillotines',
+    url: guillotines,
+  },
+  {
+    name: 'Every Star Walk',
+    url: everyStarWalk,
+  },
 ]

@@ -10,14 +10,44 @@ import confessions from './09_confessions.mp3'
 import screamAcoustic from './10_scream_acoustic.mp3'
 
 export default [
-  scream,
-  dumb,
-  home,
-  blinders,
-  infinity,
-  anaemia,
-  turn,
-  luna,
-  confessions,
-  screamAcoustic,
+  {
+    name: 'Scream',
+    url: scream,
+  },
+  {
+    name: 'Dumb',
+    url: dumb,
+  },
+  {
+    name: 'Home',
+    url: home,
+  },
+  {
+    name: 'Blinders',
+    url: blinders,
+  },
+  {
+    name: 'Infinity',
+    url: infinity,
+  },
+  {
+    name: 'Anaemia',
+    url: anaemia,
+  },
+  {
+    name: 'Turn',
+    url: turn,
+  },
+  {
+    name: 'Luna',
+    url: luna,
+  },
+  {
+    name: 'Confessions',
+    url: confessions,
+  },
+  {
+    name: 'Scream Acoustic',
+    url: screamAcoustic,
+  },
 ]

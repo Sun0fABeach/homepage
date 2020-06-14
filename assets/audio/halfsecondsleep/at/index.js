@@ -6,4 +6,33 @@ import at5 from './05_at5.mp3'
 import at6 from './06_at6.mp3'
 import at7 from './07_at7.mp3'
 
-export default [at1, at2, at3, at4, at5, at6, at7]
+export default [
+  {
+    name: 'AT1',
+    url: at1,
+  },
+  {
+    name: 'AT2',
+    url: at2,
+  },
+  {
+    name: 'AT3',
+    url: at3,
+  },
+  {
+    name: 'AT4',
+    url: at4,
+  },
+  {
+    name: 'AT5',
+    url: at5,
+  },
+  {
+    name: 'AT6',
+    url: at6,
+  },
+  {
+    name: 'AT7',
+    url: at7,
+  },
+]
