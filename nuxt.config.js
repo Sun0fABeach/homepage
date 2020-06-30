@@ -24,8 +24,9 @@ module.exports = {
    ** Global CSS
    */
   css: [
-    '@/assets/css/base.scss',
     '@/assets/css/fonts.scss',
+    '@/assets/css/base.scss',
+    '@/assets/css/layout.scss',
     '@/assets/css/animations.scss',
     '@/assets/css/transitions.scss',
   ],

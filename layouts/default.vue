@@ -16,7 +16,3 @@ export default {
   components: { Header, Footer },
 }
 </script>
-
-<style lang="scss" scoped>
-@include layout;
-</style>

@@ -9,20 +9,6 @@
   color: inherit;
 }
 
-@mixin layout {
-  .layout {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    &.site {
-      overflow-y: scroll;
-    }
-  }
-  main {
-    flex-grow: 1;
-  }
-}
-
 @mixin font-default {
   font-family: $font-family-default;
 }

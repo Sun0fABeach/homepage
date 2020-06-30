@@ -1,0 +1,30 @@
+.layout {
+  display: grid;
+  height: 100vh;
+
+  &.frontpage {
+    grid-template-areas:
+      'main'
+      'footer';
+    grid-template-rows: 1fr auto;
+  }
+
+  &.site {
+    grid-template-areas:
+      'header'
+      'main'
+      'footer';
+    grid-template-rows: auto 1fr auto;
+    overflow-y: scroll;
+  }
+
+  header {
+    grid-area: header;
+  }
+  main {
+    grid-area: main;
+  }
+  footer {
+    grid-area: footer;
+  }
+}
