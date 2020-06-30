@@ -61,6 +61,7 @@ export default {
 
   h2 {
     @include font-games;
+    font-size: 1.5rem;
     font-weight: normal;
   }
 }
