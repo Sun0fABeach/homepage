@@ -3,7 +3,7 @@
     <div class="heading">
       <h2>{{ heading }}</h2>
       <a class="icon" :href="hrefCode" target="_blank">
-        <Icon :src="iconSrc" />
+        <Icon name="github" class="github-icon" />
       </a>
     </div>
     <a class="thumb" :href="hrefGame" target="_blank">
@@ -13,7 +13,6 @@
 </template>
 
 <script>
-import iconSrc from '@/assets/icons/github_logo.svg'
 import Icon from '@/components/Icon'
 
 export default {
@@ -40,11 +39,6 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-      iconSrc,
-    }
-  },
 }
 </script>
 
@@ -63,6 +57,10 @@ export default {
     @include font-games;
     font-size: 1.5rem;
     font-weight: normal;
+  }
+
+  .github-icon {
+    font-size: 2rem;
   }
 }
 

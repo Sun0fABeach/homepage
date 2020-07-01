@@ -1,6 +1,6 @@
 <template>
   <nav class="nav-container" :class="{ 'is-open': isOpen }">
-    <Icon :src="iconSrc" class="menu-close" @click="$emit('open', false)" />
+    <Icon name="close" class="menu-close" @click="$emit('open', false)" />
     <ul>
       <li class="index">
         <nuxt-link :to="{ name: 'index' }">
@@ -22,7 +22,6 @@
 </template>
 
 <script>
-import iconSrc from '@/assets/icons/close.svg'
 import Icon from '@/components/Icon'
 
 export default {
@@ -44,7 +43,6 @@ export default {
   },
   data() {
     return {
-      iconSrc,
       routeLinkNames: this.$router.options.routes
         .filter((r) => r.name !== 'index')
         .map((r) => r.name),
@@ -75,6 +73,7 @@ export default {
 
   .menu-close {
     align-self: flex-end;
+    font-size: 2rem;
   }
 }
 

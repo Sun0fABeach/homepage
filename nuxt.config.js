@@ -26,6 +26,7 @@ module.exports = {
   css: [
     'minireset.css',
     '@/assets/css/fonts.scss',
+    '@/assets/css/icons.scss',
     '@/assets/css/base.scss',
     '@/assets/css/layout.scss',
     '@/assets/css/animations.scss',

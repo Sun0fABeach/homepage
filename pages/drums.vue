@@ -5,7 +5,7 @@
       data-amplitude-playlist="coshima-hataera"
       data-amplitude-song-index="1"
     >
-      PLAYLIST PLAY/PAUSE
+      <Icon name="play" /> PLAYLIST PLAY/PAUSE
     </h1>
 
     <div v-for="(playlist, key) of playlists" :key="playlist.title">
@@ -28,8 +28,12 @@
 <script>
 import { omit, each } from 'lodash-es'
 import playlists from '@/assets/audio'
+import Icon from '@/components/Icon'
 
 export default {
+  components: {
+    Icon,
+  },
   data() {
     return {
       playlists,

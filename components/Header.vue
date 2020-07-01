@@ -1,13 +1,12 @@
 <template>
   <header>
-    <Icon :src="iconSrc" class="menu-open" @click="menuOpen = true" />
+    <Icon name="menu" class="menu-open" @click="menuOpen = true" />
     <h1 :class="$route.name">{{ $route.name }}</h1>
     <NavContainer v-model="menuOpen" />
   </header>
 </template>
 
 <script>
-import iconSrc from '@/assets/icons/hamburger_menu.svg'
 import NavContainer from '@/components/NavContainer'
 import Icon from '@/components/Icon'
 
@@ -18,7 +17,6 @@ export default {
   },
   data() {
     return {
-      iconSrc,
       menuOpen: false,
     }
   },
@@ -31,6 +29,10 @@ header {
   align-items: center;
   --header-padding-mobile: 1.25rem; // also needed in nav container
   padding: var(--header-padding-mobile);
+
+  .menu-open {
+    font-size: 2rem;
+  }
 }
 
 h1 {
