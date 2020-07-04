@@ -1,23 +1,16 @@
 <template>
   <section class="page drums">
-    <h1
-      class="amplitude-play-pause"
-      data-amplitude-playlist="coshima-hataera"
-      data-amplitude-song-index="1"
-    >
-      <Icon name="play" /> PLAYLIST PLAY/PAUSE
-    </h1>
-
     <div v-for="(playlist, key) of playlists" :key="playlist.title">
       <h2>{{ playlist.title }}</h2>
       <ol>
         <li
           v-for="(song, idx) of playlist.songs"
           :key="song.name"
-          class="amplitude-play"
+          class="amplitude-play-pause"
           :data-amplitude-song-index="idx"
           :data-amplitude-playlist="key"
         >
+          <Icon :name="playingSongId === songId(key, idx) ? 'pause' : 'play'" />
           {{ song.name }}
         </li>
       </ol>
@@ -26,7 +19,6 @@
 </template>
 
 <script>
-import { omit, each } from 'lodash-es'
 import playlists from '@/assets/audio'
 import Icon from '@/components/Icon'
 
@@ -36,24 +28,36 @@ export default {
   },
   data() {
     return {
-      playlists,
+      playingSongId: null,
     }
   },
+  created() {
+    this.playlists = playlists
+  },
   mounted() {
-    this.$amplitude.init({})
-    each(playlists, (playlist, key) => {
-      this.$amplitude.addPlaylist(
-        key,
-        omit(playlist, ['songs']),
-        playlist.songs
-      )
+    this.$amplitude.init({
+      songs: [{ url: '' }], // dummy, so init works ...
+      playlists,
+      callbacks: {
+        play: this.onPlay,
+        pause: this.onPause,
+      },
     })
+  },
+  methods: {
+    songId(playlistKey, songIdx) {
+      return `${playlistKey}${songIdx}`
+    },
+    onPause() {
+      this.playingSongId = null
+    },
+    onPlay() {
+      const playlistKey = this.$amplitude.getActivePlaylist()
+      const songIdx = this.$amplitude.getActivePlaylistMetadata().active_index
+      this.playingSongId = this.songId(playlistKey, songIdx)
+    },
   },
 }
 </script>
 
-<style lang="scss" scoped>
-h1 {
-  text-align: center;
-}
-</style>
+<style lang="scss" scoped></style>
