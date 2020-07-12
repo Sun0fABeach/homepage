@@ -1,31 +1,6 @@
 <template>
   <section class="page drums">
-    <div class="songs">
-      <div v-for="(playlist, key) of playlists" :key="playlist.title">
-        <h2
-          class="amplitude-play"
-          :data-amplitude-playlist="key"
-          :data-amplitude-song-index="0"
-        >
-          {{ playlist.title }}
-        </h2>
-        <ol>
-          <li
-            v-for="(song, idx) of playlist.songs"
-            :key="song.name"
-            class="amplitude-play-pause"
-            :data-amplitude-song-index="idx"
-            :data-amplitude-playlist="key"
-          >
-            <Icon
-              :name="playingSongId === songId(key, idx) ? 'pause' : 'play'"
-            />
-            {{ song.name }}
-          </li>
-        </ol>
-      </div>
-    </div>
-
+    <SongList :playlists="playlists" :playing-song-id="playingSongId" />
     <Player
       :song-data="activeSongData"
       :playlist-key="activePlaylistKey"
@@ -37,13 +12,13 @@
 <script>
 import { pick } from 'lodash-es'
 import playlists from '@/assets/audio'
-import Icon from '@/components/Icon'
+import SongList from '@/components/SongList'
 import Player from '@/components/Player'
 
 export default {
   components: {
+    SongList,
     Player,
-    Icon,
   },
   data() {
     return {
@@ -74,11 +49,11 @@ export default {
       this.playingSongId = null
     },
     onPlay() {
-      const playlist = this.playlistData()
+      const playlist = this.activePlaylistData()
       this.playingSongId = this.songId(playlist.key, playlist.active_index)
     },
     onSongChange() {
-      const playlist = this.playlistData()
+      const playlist = this.activePlaylistData()
       const songData = this.$amplitude.getActiveSongMetadata()
 
       this.activePlaylistKey = playlist.key
@@ -88,7 +63,7 @@ export default {
         isLast: playlist.active_index === playlist.songs.length - 1,
       }
     },
-    playlistData() {
+    activePlaylistData() {
       return {
         ...this.$amplitude.getActivePlaylistMetadata(),
         key: this.$amplitude.getActivePlaylist(),
@@ -104,13 +79,5 @@ section {
   flex-direction: column;
   align-items: center;
   height: 100%;
-
-  .songs {
-    flex-grow: 1;
-
-    > div {
-      margin-bottom: 1rem;
-    }
-  }
 }
 </style>
