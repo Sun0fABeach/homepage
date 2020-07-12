@@ -41,11 +41,7 @@ export default {
       default: null,
     },
   },
-  methods: {
-    songId(playlistKey, songIdx) {
-      return `${playlistKey}${songIdx}`
-    },
-  },
+  inject: ['songId'],
 }
 </script>
 

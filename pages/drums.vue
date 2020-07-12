@@ -20,6 +20,11 @@ export default {
     SongList,
     Player,
   },
+  provide() {
+    return {
+      songId: this.songId,
+    }
+  },
   data() {
     return {
       playingSongId: null,
