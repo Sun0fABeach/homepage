@@ -46,6 +46,9 @@ export default {
       },
     })
   },
+  destroyed() {
+    this.$amplitude.pause()
+  },
   methods: {
     songId(playlistKey, songIdx) {
       return `${playlistKey}${songIdx}`
