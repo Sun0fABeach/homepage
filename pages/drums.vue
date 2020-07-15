@@ -37,7 +37,6 @@ export default {
   },
   mounted() {
     this.$amplitude.init({
-      songs: [{ url: '' }], // dummy, so init works ...
       playlists,
       callbacks: {
         play: this.onPlay,
