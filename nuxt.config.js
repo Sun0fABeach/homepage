@@ -80,5 +80,6 @@ module.exports = {
         },
       })
     },
+    transpile: [({ isServer }) => isServer && 'lodash-es'],
   },
 }
