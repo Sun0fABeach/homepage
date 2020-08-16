@@ -5,6 +5,7 @@
       :song-data="activeSongData"
       :playlist-key="activePlaylistKey"
       :playing="!!playingSongId"
+      :played-percentage="playedSongPercentage"
     />
   </section>
 </template>
@@ -30,6 +31,7 @@ export default {
       playingSongId: null,
       activeSongData: null,
       activePlaylistKey: null,
+      playedSongPercentage: 0,
     }
   },
   created() {
@@ -42,6 +44,7 @@ export default {
         play: this.onPlay,
         pause: this.onPause,
         song_change: this.onSongChange,
+        timeupdate: this.onTimeUpdate,
       },
     })
   },
@@ -69,6 +72,10 @@ export default {
         isFirst: playlist.active_index === 0,
         isLast: playlist.active_index === playlist.songs.length - 1,
       }
+      this.playedSongPercentage = 0
+    },
+    onTimeUpdate() {
+      this.playedSongPercentage = this.$amplitude.getSongPlayedPercentage()
     },
     activePlaylistData() {
       return {
