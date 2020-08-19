@@ -1,28 +1,30 @@
 <template>
   <div class="container">
     <div class="song-info">
-      <div>Artist: {{ songData ? songData.artist : '-' }}</div>
-      <div>Album: {{ songData ? songData.album : '-' }}</div>
-      <div>Song: {{ songData ? songData.name : '-' }}</div>
+      <div>Artist: {{ song.artist }}</div>
+      <div>Album: {{ song.album }}</div>
+      <div>Song: {{ song.name }}</div>
     </div>
+
     <Icon
       class="prev-btn amplitude-prev"
-      :class="{ disabled: !songData || songData.isFirst }"
+      :class="{ disabled: song.unset || song.isFirst }"
       :data-amplitude-playlist="playlistKey"
       name="prev"
     />
     <Icon
       class="play-pause-btn amplitude-play-pause"
-      :class="{ disabled: !songData }"
+      :class="{ disabled: song.unset }"
       :data-amplitude-playlist="playlistKey"
-      :name="songData && playing ? 'pause' : 'play'"
+      :name="playing ? 'pause' : 'play'"
     />
     <Icon
       class="next-btn amplitude-next"
-      :class="{ disabled: !songData || songData.isLast }"
+      :class="{ disabled: song.unset || song.isLast }"
       :data-amplitude-playlist="playlistKey"
       name="next"
     />
+
     <div ref="songProgress" class="song-progress">
       <span ref="songProgressKnob" :style="progressKnobTransform" />
     </div>
@@ -69,14 +71,27 @@ export default {
     }
   },
   computed: {
-    progressKnobTransform() {
-      return { transform: `translate(${this.progressOffset}px, -50%)` }
+    song() {
+      return (
+        this.songData || {
+          unset: true,
+          artist: '-',
+          album: '-',
+          name: '-',
+          isFirst: false,
+          isLast: false,
+          duration: 0,
+        }
+      )
     },
     songDuration() {
-      return this.secsToTimeDisplay(this.songData ? this.songData.duration : 0)
+      return this.secsToTimeDisplay(this.song.duration)
     },
     songElapsedTime() {
       return this.secsToTimeDisplay(this.playedSeconds)
+    },
+    progressKnobTransform() {
+      return { transform: `translate(${this.progressOffset}px, -50%)` }
     },
   },
   watch: {
@@ -88,10 +103,6 @@ export default {
     this.setProgress(0)
   },
   methods: {
-    setProgress(percentage) {
-      const progressBarWidth = this.$refs.songProgress.clientWidth
-      this.progressOffset = (progressBarWidth * percentage) / 100
-    },
     secsToTimeDisplay(totalSecs) {
       const floored = Math.floor(totalSecs)
       const mins = Math.floor(floored / 60)
@@ -100,6 +111,10 @@ export default {
     },
     padZeroes(val) {
       return padStart(val, 2, '0')
+    },
+    setProgress(percentage) {
+      const progressBarWidth = this.$refs.songProgress.clientWidth
+      this.progressOffset = (progressBarWidth * percentage) / 100
     },
   },
 }

@@ -29,9 +29,9 @@ export default {
   },
   data() {
     return {
-      playingSongId: null,
-      activeSongData: null,
       activePlaylistKey: null,
+      activeSongData: null,
+      playingSongId: null,
       playedSongDuration: 0,
       playedSongSeconds: 0,
       playedSongPercentage: 0,
