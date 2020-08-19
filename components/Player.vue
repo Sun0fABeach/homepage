@@ -26,10 +26,15 @@
     <div ref="songProgress" class="song-progress">
       <span ref="songProgressKnob" :style="progressKnobTransform" />
     </div>
+    <div class="song-seconds">
+      <span>{{ songElapsedTime }}</span> /
+      <span>{{ songDuration }}</span>
+    </div>
   </div>
 </template>
 
 <script>
+import { padStart } from 'lodash-es'
 import Icon from '@/components/Icon'
 
 export default {
@@ -49,6 +54,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    playedSeconds: {
+      type: Number,
+      default: 0,
+    },
     playedPercentage: {
       type: Number,
       default: 0,
@@ -63,6 +72,12 @@ export default {
     progressKnobTransform() {
       return { transform: `translate(${this.progressOffset}px, -50%)` }
     },
+    songDuration() {
+      return this.secsToTimeDisplay(this.songData ? this.songData.duration : 0)
+    },
+    songElapsedTime() {
+      return this.secsToTimeDisplay(this.playedSeconds)
+    },
   },
   watch: {
     playedPercentage(val) {
@@ -76,6 +91,15 @@ export default {
     setProgress(percentage) {
       const progressBarWidth = this.$refs.songProgress.clientWidth
       this.progressOffset = (progressBarWidth * percentage) / 100
+    },
+    secsToTimeDisplay(totalSecs) {
+      const floored = Math.floor(totalSecs)
+      const mins = Math.floor(floored / 60)
+      const secs = floored % 60
+      return `${this.padZeroes(mins)}:${this.padZeroes(secs)}`
+    },
+    padZeroes(val) {
+      return padStart(val, 2, '0')
     },
   },
 }
@@ -115,6 +139,10 @@ export default {
       border-radius: 50%;
       background-color: black;
     }
+  }
+
+  .song-seconds {
+    margin-top: 0.75rem;
   }
 }
 </style>
