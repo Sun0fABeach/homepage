@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @click="seek">
     <span :style="knobTransform" />
   </div>
 </template>
@@ -10,6 +10,10 @@ export default {
     percentage: {
       type: Number,
       default: 0,
+    },
+    songActive: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
@@ -27,6 +31,17 @@ export default {
       this.offset = (this.$el.clientWidth * val) / 100
     },
   },
+  methods: {
+    seek(event) {
+      if (!this.songActive) {
+        return
+      }
+      const offsetPx = event.clientX - this.$el.getBoundingClientRect().x
+      this.$amplitude.setSongPlayedPercentage(
+        (offsetPx * 100) / this.$el.clientWidth
+      )
+    },
+  },
 }
 </script>
 
@@ -34,7 +49,11 @@ export default {
 div {
   position: relative;
   width: 300px;
-  height: 4px;
+  height: 20px;
+  border-width: 8px 0 8px;
+  border-style: solid;
+  border-color: transparent;
+  background-clip: content-box;
   background-color: $color-primary;
 
   > span {

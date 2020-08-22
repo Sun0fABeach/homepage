@@ -25,7 +25,11 @@
       name="next"
     />
 
-    <SongProgress class="song-progress" :percentage="playedPercentage" />
+    <SongProgress
+      class="song-progress"
+      :percentage="playedPercentage"
+      :song-active="!!songData"
+    />
 
     <div class="song-seconds">
       <span>{{ songElapsedTime }}</span> /
