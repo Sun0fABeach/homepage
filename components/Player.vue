@@ -114,6 +114,8 @@ export default {
   .prev-btn,
   .next-btn {
     font-size: 3rem;
+    cursor: pointer;
+
     &.disabled {
       pointer-events: none;
       opacity: 0.5;

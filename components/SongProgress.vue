@@ -55,6 +55,7 @@ div {
   border-color: transparent;
   background-clip: content-box;
   background-color: $color-primary;
+  cursor: pointer;
 
   > span {
     $knob-width: 14px;

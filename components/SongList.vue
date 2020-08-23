@@ -52,5 +52,10 @@ export default {
   > div {
     margin-bottom: 1rem;
   }
+
+  h2,
+  li {
+    cursor: pointer;
+  }
 }
 </style>
