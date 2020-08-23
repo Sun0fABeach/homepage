@@ -1,10 +1,12 @@
 <template>
-  <div @click="seek">
+  <div @mousedown.prevent="onMouseDown">
     <span :style="knobTransform" />
   </div>
 </template>
 
 <script>
+import { clamp } from 'lodash-es'
+
 export default {
   props: {
     percentage: {
@@ -28,18 +30,38 @@ export default {
   },
   watch: {
     percentage(val) {
-      this.offset = (this.$el.clientWidth * val) / 100
+      if (!this.mouseDown) {
+        this.offset = (this.$el.clientWidth * val) / 100
+      }
     },
   },
   methods: {
-    seek(event) {
+    onMouseDown(event) {
       if (!this.songActive) {
         return
       }
-      const offsetPx = event.clientX - this.$el.getBoundingClientRect().x
-      this.$amplitude.setSongPlayedPercentage(
-        (offsetPx * 100) / this.$el.clientWidth
-      )
+      this.mouseDown = true
+      this.positionKnob(event.clientX)
+      window.addEventListener('mousemove', this.onMouseMove)
+      window.addEventListener('mouseup', this.onMouseUp, { once: true })
+    },
+    onMouseMove(event) {
+      this.positionKnob(event.clientX)
+    },
+    onMouseUp(event) {
+      this.mouseDown = false
+      this.seek()
+      window.removeEventListener('mousemove', this.onMouseMove)
+    },
+    positionKnob(mouseX) {
+      const { left, right } = this.$el.getBoundingClientRect()
+      const screenOffset = clamp(mouseX, left, right)
+      this.offset = screenOffset - left
+    },
+    seek() {
+      const percentage = (this.offset * 100) / this.$el.clientWidth
+      /* percentage values of 0 or 100 are ignored by Amplitude on Firefox */
+      this.$amplitude.setSongPlayedPercentage(clamp(percentage, 0.001, 99.999))
     },
   },
 }
