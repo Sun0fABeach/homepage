@@ -31,15 +31,14 @@
       :song-active="!!songData"
     />
 
-    <div class="song-seconds">
-      <span>{{ songElapsedTime }}</span> /
-      <span>{{ songDuration }}</span>
+    <div class="song-time">
+      <span :class="{ 'amplitude-current-time': !song.unset }">00:00</span> /
+      <span :class="{ 'amplitude-duration-time': !song.unset }">00:00</span>
     </div>
   </div>
 </template>
 
 <script>
-import { padStart } from 'lodash-es'
 import Icon from '@/components/Icon'
 import SongProgress from '@/components/SongProgress'
 
@@ -61,10 +60,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    playedSeconds: {
-      type: Number,
-      default: 0,
-    },
     playedPercentage: {
       type: Number,
       default: 0,
@@ -80,26 +75,8 @@ export default {
           name: '-',
           isFirst: false,
           isLast: false,
-          duration: 0,
         }
       )
-    },
-    songDuration() {
-      return this.secsToTimeDisplay(this.song.duration)
-    },
-    songElapsedTime() {
-      return this.secsToTimeDisplay(this.playedSeconds)
-    },
-  },
-  methods: {
-    secsToTimeDisplay(totalSecs) {
-      const floored = Math.floor(totalSecs)
-      const mins = Math.floor(floored / 60)
-      const secs = floored % 60
-      return `${this.padZeroes(mins)}:${this.padZeroes(secs)}`
-    },
-    padZeroes(val) {
-      return padStart(val, 2, '0')
     },
   },
 }
@@ -126,7 +103,7 @@ export default {
     margin-top: 0.5rem;
   }
 
-  .song-seconds {
+  .song-time {
     margin-top: 0.75rem;
   }
 }

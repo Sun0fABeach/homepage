@@ -6,7 +6,6 @@
       :playlist-key="activePlaylistKey"
       :playing="!!playingSongId"
       :played-percentage="playedSongPercentage"
-      :played-seconds="playedSongSeconds"
     />
   </section>
 </template>
@@ -32,7 +31,6 @@ export default {
       activePlaylistKey: null,
       activeSongData: null,
       playingSongId: null,
-      playedSongDuration: 0,
       playedSongSeconds: 0,
       playedSongPercentage: 0,
     }
@@ -74,7 +72,6 @@ export default {
         ...pick(songData, ['artist', 'album', 'name']),
         isFirst: playlist.active_index === 0,
         isLast: playlist.active_index === playlist.songs.length - 1,
-        duration: 0, //  proper value set in onTimeUpdate
       }
 
       this.playedSongPercentage = 0
@@ -83,15 +80,6 @@ export default {
     onTimeUpdate() {
       this.playedSongPercentage = this.$amplitude.getSongPlayedPercentage()
       this.playedSongSeconds = this.$amplitude.getSongPlayedSeconds()
-
-      /* Amplitude returns NaN at beginning of the song, so we need to:
-       * 1. set this duration at time update instead of song change
-       * 2. only set this value if it is not NaN
-       */
-      const duration = this.$amplitude.getSongDuration()
-      if (!isNaN(duration)) {
-        this.activeSongData.duration = duration
-      }
     },
     activePlaylistData() {
       return {
