@@ -2,7 +2,9 @@
 	path = games/breakout
 	url = git@github.com:Sun0fABeach/breakout.git
 	branch = on-homepage
+	ignore = dirty
 [submodule "games/EvolutronicLife"]
 	path = games/EvolutronicLife
 	url = git@github.com:Sun0fABeach/EvolutronicLife.git
 	branch = on-homepage
+	ignore = dirty
