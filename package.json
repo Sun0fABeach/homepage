@@ -29,28 +29,28 @@
     }
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.12.1",
+    "@nuxtjs/axios": "^5.12.2",
     "amplitudejs": "^5.2.0",
     "cross-env": "^7.0.2",
     "express": "^4.16.4",
     "lodash-es": "^4.17.15",
     "minireset.css": "0.0.6",
-    "nuxt": "^2.14.1"
+    "nuxt": "^2.14.7"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",
-    "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/eslint-module": "^3.0.0",
     "@nuxtjs/style-resources": "^1.0.0",
     "babel-eslint": "^10.0.1",
-    "eslint": "^7.6.0",
-    "eslint-config-prettier": "^6.11.0",
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^6.13.0",
     "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.11",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.2",
     "node-sass": "^4.14.1",
-    "nodemon": "^2.0.4",
-    "prettier": "^2.0.5",
-    "sass-loader": "^9.0.3"
+    "nodemon": "^2.0.5",
+    "prettier": "^2.1.2",
+    "sass-loader": "^10.0.3"
   }
 }
