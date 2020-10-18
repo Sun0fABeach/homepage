@@ -3,9 +3,7 @@
     <Icon name="close" class="menu-close" @click="$emit('open', false)" />
     <ul>
       <li class="index">
-        <nuxt-link :to="{ name: 'index' }">
-          Home
-        </nuxt-link>
+        <nuxt-link :to="{ name: 'index' }">Home</nuxt-link>
       </li>
       <li v-for="name in routeLinkNames" :key="name" :class="name">
         <nuxt-link :to="{ name }" @click.native="$emit('open', false)">
@@ -13,9 +11,7 @@
         </nuxt-link>
       </li>
       <li class="code">
-        <a href="https://github.com/Sun0fABeach" target="_blank">
-          Code
-        </a>
+        <a href="https://github.com/Sun0fABeach" target="_blank">Code</a>
       </li>
     </ul>
   </nav>
