@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav-container" :class="{ 'is-open': isOpen }">
+  <nav class="nav-container" :class="{ 'is-open': isOpen, transitioning }">
     <Icon name="close" class="menu-close" @click="$emit('open', false)" />
     <ul>
       <li class="index">
@@ -39,10 +39,23 @@ export default {
   },
   data() {
     return {
+      transitioning: false,
       routeLinkNames: this.$router.options.routes
         .filter((r) => r.name !== 'index')
         .map((r) => r.name),
     }
+  },
+  watch: {
+    isOpen() {
+      this.transitioning = true
+      this.$el.addEventListener(
+        'transitionend',
+        () => {
+          this.transitioning = false
+        },
+        { once: true }
+      )
+    },
   },
 }
 </script>
@@ -54,17 +67,20 @@ export default {
   position: absolute;
   z-index: 100;
   top: 0;
-  left: 0;
+  bottom: 0;
+  right: 100vw;
   width: 100vw;
   height: 100vh;
   background-color: white;
   border-right: 1px solid lightgray;
   padding: var(--header-padding-mobile);
-  transform: translateX(-100vw);
-  transition: transform 750ms;
+  transform: translateX(0);
 
   &.is-open {
-    transform: translateX(0);
+    transform: translateX(100vw);
+  }
+  &.transitioning {
+    transition: transform 750ms;
   }
 
   .menu-close {
@@ -113,13 +129,19 @@ ul {
   .nav-container {
     flex-grow: 1;
     position: relative;
-    top: 0;
-    left: 0;
-    width: auto;
-    height: auto;
-    border-right: none;
-    padding: 0;
-    transform: none;
+    z-index: initial;
+    right: initial;
+    width: initial;
+    height: initial;
+    border-right: initial;
+    padding: initial;
+
+    &.is-open {
+      transform: initial;
+    }
+    &.transitioning {
+      transition: initial;
+    }
   }
 
   ul {

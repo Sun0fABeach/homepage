@@ -18,7 +18,28 @@ export default {
   data() {
     return {
       menuOpen: false,
+      mqList: null,
     }
+  },
+  mounted() {
+    /* if the user rotates from portrait to tablet sized landscape, the nav overlay disappears,
+     * since the nav is now inside the header. this listener ensures that the overlay stays gone
+     * if the user were to subsequently rotate back to portrait.
+     * NOTE: keep min-width in sync with $min-tablet in variables.scss! */
+    this.mqList = window.matchMedia(
+      '(min-width: 700px) and (orientation: landscape)'
+    )
+    this.mqList.addListener(this.onRotationToTabletLandscape)
+  },
+  destroyed() {
+    this.mqList.removeListener(this.onRotationToTabletLandscape)
+  },
+  methods: {
+    onRotationToTabletLandscape(event) {
+      if (event.matches) {
+        this.menuOpen = false
+      }
+    },
   },
 }
 </script>
