@@ -25,12 +25,7 @@
 </template>
 
 <script>
-import Icon from '@/components/Icon'
-
 export default {
-  components: {
-    Icon,
-  },
   props: {
     playlists: {
       type: Object,

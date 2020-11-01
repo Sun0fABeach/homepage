@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import GameThumbnail from '@/components/GameThumbnail'
 import imgBreakout from '@/assets/images/breakout.png'
 import imgBattleship from '@/assets/images/battleship.png'
 import imgEvolife from '@/assets/images/evolife.png'
@@ -39,7 +38,6 @@ const imgData = {
 }
 
 export default {
-  components: { GameThumbnail },
   data() {
     return imgData
   },

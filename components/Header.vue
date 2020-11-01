@@ -7,14 +7,7 @@
 </template>
 
 <script>
-import NavContainer from '@/components/NavContainer'
-import Icon from '@/components/Icon'
-
 export default {
-  components: {
-    NavContainer,
-    Icon,
-  },
   data() {
     return {
       menuOpen: false,

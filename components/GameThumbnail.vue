@@ -13,10 +13,7 @@
 </template>
 
 <script>
-import Icon from '@/components/Icon'
-
 export default {
-  components: { Icon },
   props: {
     heading: {
       type: String,

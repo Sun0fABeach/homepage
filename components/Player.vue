@@ -39,14 +39,7 @@
 </template>
 
 <script>
-import Icon from '@/components/Icon'
-import SongProgress from '@/components/SongProgress'
-
 export default {
-  components: {
-    Icon,
-    SongProgress,
-  },
   props: {
     playlistKey: {
       type: String,

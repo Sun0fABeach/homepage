@@ -18,10 +18,7 @@
 </template>
 
 <script>
-import Icon from '@/components/Icon'
-
 export default {
-  components: { Icon },
   filters: {
     capitalize(s) {
       return s ? s[0].toUpperCase() + s.slice(1) : ''

@@ -17,6 +17,10 @@ module.exports = {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   /*
+   ** Auto import any component defined in components/
+   */
+  components: true,
+  /*
    ** Customize the progress-bar color
    */
   loading: { color: '#fff' },

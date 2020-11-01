@@ -13,14 +13,8 @@
 <script>
 import { pick } from 'lodash-es'
 import playlists from '@/assets/audio'
-import SongList from '@/components/SongList'
-import Player from '@/components/Player'
 
 export default {
-  components: {
-    SongList,
-    Player,
-  },
   provide() {
     return {
       songId: this.songId,
