@@ -1,5 +1,5 @@
 <template>
-  <section class="page home">
+  <section class="page page--home">
     <h1>Markus Appel</h1>
     <ul>
       <li class="drums">
@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home {
+.page--home {
   display: flex;
   flex-direction: column;
   justify-content: center;

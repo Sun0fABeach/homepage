@@ -1,5 +1,5 @@
 <template>
-  <section class="page games">
+  <section class="page page--games">
     <div class="thumbnails">
       <GameThumbnail v-bind="breakout" />
       <GameThumbnail v-bind="battleship" />
@@ -45,7 +45,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.games {
+.page--games {
   display: flex;
   flex-direction: column;
 
@@ -65,7 +65,7 @@ export default {
 }
 
 @media (min-width: $min-tablet) {
-  .games {
+  .page--games {
     .thumbnails {
       flex-direction: row;
       justify-content: space-evenly;
@@ -83,7 +83,7 @@ export default {
 }
 
 @media (min-width: $min-desktop) {
-  .games {
+  .page--games {
     .thumbnails {
       > * {
         width: 20%;

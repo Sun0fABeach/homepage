@@ -1,5 +1,5 @@
 <template>
-  <section class="page drums">
+  <section class="page page--drums">
     <SongList :playlists="playlists" :playing-song-id="playingSongId" />
     <Player
       :song-data="activeSongData"
@@ -86,7 +86,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-section {
+.page--drums {
   display: flex;
   flex-direction: column;
   align-items: center;

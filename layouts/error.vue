@@ -1,5 +1,5 @@
 <template>
-  <section class="page error">
+  <section class="page page--error">
     <div class="circle">
       <h1 v-if="error.statusCode === 404">Page not found</h1>
       <h1 v-else>An error occurred</h1>
@@ -14,7 +14,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.page.error {
+.page--error {
   display: flex;
   justify-content: center;
   align-items: center;
