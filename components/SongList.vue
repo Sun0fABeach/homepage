@@ -26,6 +26,7 @@
 
 <script>
 export default {
+  inject: ['songId'],
   props: {
     playlists: {
       type: Object,
@@ -36,7 +37,6 @@ export default {
       default: null,
     },
   },
-  inject: ['songId'],
 }
 </script>
 
