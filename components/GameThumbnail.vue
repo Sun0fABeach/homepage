@@ -84,8 +84,7 @@ a {
         transition: all 0.5s;
       }
 
-      &:hover,
-      &:focus {
+      &:hover {
         > img {
           filter: none;
           transform: scale(1.05);
