@@ -46,9 +46,6 @@ export default {
 
 <style lang="scss" scoped>
 .page--games {
-  display: flex;
-  flex-direction: column;
-
   .thumbnails {
     display: flex;
     flex-direction: column;

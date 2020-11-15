@@ -57,6 +57,7 @@ export default {
   }
 
   .github-icon {
+    margin-left: 0.5rem;
     font-size: 2rem;
   }
 }
