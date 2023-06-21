@@ -35,7 +35,7 @@
     "express": "^4.17.3",
     "lodash-es": "^4.17.21",
     "minireset.css": "0.0.6",
-    "nuxt": "^3.0.0"
+    "nuxt": "^3.4.3"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^5.0.0",
