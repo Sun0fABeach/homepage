@@ -32,7 +32,7 @@
     "@nuxtjs/axios": "^5.12.2",
     "amplitudejs": "^5.2.0",
     "cross-env": "^7.0.2",
-    "express": "^4.21.1",
+    "express": "^4.21.2",
     "lodash-es": "^4.17.21",
     "minireset.css": "0.0.6",
     "nuxt": "^3.12.4"
